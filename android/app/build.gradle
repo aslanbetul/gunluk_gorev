@@ -1,0 +1,49 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.gorev_calisma"  // Burada namespace belirtildi
+
+    // Flutter'ın compileSdk ve ndk versiyonlarını alıyoruz
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        // Uygulamanızın benzersiz package ID'si (applicationId)
+        applicationId = "com.example.gorev_calisma"
+        minSdk = flutter.minSdkVersion
+        targetSdk = flutter.targetSdkVersion
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    buildTypes {
+        release {
+            // Debug imzalama ile release yapılabilir
+            signingConfig = signingConfigs.debug
+        }
+    }
+
+    // Eğer özelleştirilmiş yapılandırmalar yapıyorsanız buraya ekleyebilirsiniz
+    // buildFeatures {
+    //    viewBinding = true
+    // }
+}
+
+flutter {
+    // Flutter projesinin kök dizinine işaret eder
+    source = "../.."
+}
+
